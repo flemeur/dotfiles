@@ -8,7 +8,7 @@
 	"modules-center": [],
 	"modules-right": [
 		"tray", 
-		"cpu", "memory", "temperature", "custom/fan", "power-profiles-daemon", "network", "battery", "pulseaudio", "idle_inhibitor", "clock", "custom/notification", "custom/power"],
+		"cpu", "memory", "temperature", "custom/fan", "network", "battery", "pulseaudio", "idle_inhibitor", "clock", "custom/notification", "custom/power"],
 
 	"sway/workspaces": {
 		"justify": "left"
@@ -34,17 +34,6 @@
 		"format-icons": {
 			"activated": "󰅶",
 			"deactivated": "󰾫"
-		}
-	},
-	"power-profiles-daemon": {
-		"format": "{icon}",
-		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-		"tooltip": true,
-		"format-icons": {
-			"default": "",
-			"performance": "",
-			"balanced": "",
-			"power-saver": ""
 		}
 	},
 	"tray": {
@@ -154,4 +143,4 @@
 	}
 }
 
-// vi:ft=json
+// vi:ft=jsonc

@@ -51,9 +51,8 @@ exec blueman-applet
 # Start dropbox daemon
 exec --no-startup-id dropbox start
 
-# Workaround for wallpaper not being set properly at the moment
-exec_always swaymsg output '*' bg /usr/share/backgrounds/gnome/blobs-l.svg fill
-# exec_always swaymsg output '*' bg '~/Pictures/Keyboard layout background.png' fill
+# Fix cursor size
+seat "*" xcursor_theme Adwaita 24
 
 ### Output configuration
 #
@@ -66,26 +65,23 @@ exec_always swaymsg output '*' bg /usr/share/backgrounds/gnome/blobs-l.svg fill
 set $laptop eDP-1
 
 # Laptop display
-output $laptop resolution 3840x2400 position 3840,960 scale 2
-# output $laptop resolution 3840x2400 position 3840,960 scale 1.75
+output $laptop resolution 3840x2400 position 3840,960 scale 1.5
 
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
-exec_always ~/bin/sway-laptop-clamshell.sh
+exec_always ~/.config/sway/scripts/laptop-clamshell.sh
 
 # Dell 4K display
 output DP-3 resolution 3840x2160 position 0,0
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg ~/Pictures/Backgrounds/L1003859.jpg fill
-# output * bg /usr/share/backgrounds/gnome/blobs-l.svg fill
-# output * bg "$HOME/Pictures/Keyboard layout background.png" fill
+output * bg ~/Pictures/Wallpapers/blobs-l.svg fill
 # Use terminal as background
 # exec kitty +kitten panel --edge=background cmatrix
 
 ### Idle configuration
 
-set $lock swaylock -f -i ~/Pictures/Backgrounds/City-Rainy-Night.png
+set $lock swaylock -f -i ~/Pictures/Wallpapers/blobs-l.svg
 
 exec swayidle -w \
 	timeout 300 '$lock' \
