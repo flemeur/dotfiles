@@ -1,0 +1,5 @@
+fish_variables
+secrets.fish
+completions/
+conf.d/nvm.fish
+functions/
