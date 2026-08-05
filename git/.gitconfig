@@ -1,22 +1,19 @@
 [user]
 	email = flemming@flamingcode.com
 	name = Flemming Andersen
-	signingkey = 804D799C
+[init]
+	defaultBranch = master
+[pull]
+	ff = only
 [push]
 	default = simple
-[core]
-	excludesfile = ~/.gitignore
+[fetch]
+	prune = true
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
-[pull]
-	ff = only
-[init]
-	defaultBranch = master
-[fetch]
-	prune = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
