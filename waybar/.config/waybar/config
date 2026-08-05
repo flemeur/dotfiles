@@ -1,0 +1,157 @@
+{
+	"layer": "top",
+	"position": "top",
+	"mode": "dock",
+	"spacing": 2,
+	"fixed-center": false,
+	"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+	"modules-center": [],
+	"modules-right": [
+		"tray", 
+		"cpu", "memory", "temperature", "custom/fan", "power-profiles-daemon", "network", "battery", "pulseaudio", "idle_inhibitor", "clock", "custom/notification", "custom/power"],
+
+	"sway/workspaces": {
+		"justify": "left"
+	},
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>",
+		"justify": "left"
+	},
+	"sway/window": {
+		"tooltip": false,
+		"max-length": 50,
+		"justify": "center"
+	},
+	"network": {
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "{ifname} ",
+		"format-disconnected": "", 
+		"max-length": 50,
+		"justify": "right"
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "󰅶",
+			"deactivated": "󰾫"
+		}
+	},
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
+	},
+	"tray": {
+		"icon-size": 15,
+		"spacing": 10
+	},
+	"clock": {
+		"format": "{:%F %R}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "left",
+			"format": {
+				"months":     "<span color='#ffead3'><b>{}</b></span>",
+				"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks":      "<span color='#99ffdd'><b>W{:%V}</b></span>",
+				"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		}
+	},
+	"cpu": {
+		"interval": 2,
+		"format": "{usage:3}%  ",
+		"justify": "right"
+	},
+	"memory": {
+		"format": "{percentage:3}%  ",
+		"interval": 5,
+		"justify": "right"
+	},
+	"temperature": {
+		"interval": 2,
+		"thermal-zone": 0,
+		"critical-threshold": 80,
+		"format-critical": "{temperatureC:3}°C ",
+		"format": "{temperatureC:3}°C ",
+		"justify": "right"
+	},
+	"custom/fan": {
+		"format": "{text} RPM  󰈐",
+		"return-type": "json",
+		"exec": "~/.config/waybar/scripts/thinkpad-fan-speed.sh",
+		"interval": 5,
+		"justify": "right"
+	},
+	"battery": {
+		"bat": "BAT0",
+		"adapter": "AC",
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity:3}% {icon}",
+		"format-plugged": "{capacity:3}% 󰚥",
+		// "format-icons": ["", "", "", "", ""],
+		"format-icons": {
+			"default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+			"charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+		},
+		"tooltip-format": "{timeTo}\nPower Draw: {power} W",
+		"max-length": 25
+	},
+	"pulseaudio": {
+		"format": "{volume:3}% {icon}",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": "0% {icon} ",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""]
+		},
+		"on-click": "pavucontrol"
+	},
+	"custom/power": {
+		"format": " ",
+		"on-click": "wlogout"
+	},
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "<span foreground='red'><sup></sup></span>",
+			"none": "",
+			"dnd-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-none": "",
+			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
+	}
+}
+
+// vi:ft=json

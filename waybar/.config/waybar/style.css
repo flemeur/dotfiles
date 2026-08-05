@@ -1,0 +1,116 @@
+@import "mocha.css";
+
+* {
+  font-family: "Symbols Nerd Font Mono", monospace;
+  font-size: 14px;
+  color: @text;
+}
+
+window#waybar {
+  background-color: @base;
+}
+
+/*-----module groups----*/
+.modules-left {
+}
+.modules-center {
+  /* Currently no center modules so no need for padding */
+  /* padding: 0 5px; */
+}
+.modules-right {
+}
+
+/*----- Individual Modules -----*/
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#power-profiles-daemon,
+#window,
+#custom-power,
+#custom-menu,
+#custom-notification,
+#custom-fan {
+  padding: 0 12px;
+  margin: 2px 0;
+}
+#workspaces {
+  margin: 2px 0;
+}
+
+#workspaces button {
+  padding: 2px 5px;
+  background-color: transparent;
+  color: @subtext0;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  background-color: @surface0;
+  color: @text;
+}
+
+#workspaces button.focused {
+  background-color: @surface1;
+  color: @mauve;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @crust;
+}
+
+#mode {
+  color: @red;
+  font-weight: bold;
+}
+
+/*----- Indicators -----*/
+#idle_inhibitor.activated {
+  color: @green;
+}
+
+#pulseaudio {
+  color: @blue;
+}
+
+#pulseaudio.muted {
+  color: @overlay0;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @teal;
+}
+
+#battery.warning:not(.charging) {
+  color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+}
+
+#temperature {
+  color: @peach;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#custom-fan {
+  color: @sky;
+}
