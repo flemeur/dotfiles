@@ -68,7 +68,7 @@
 	},
 	"temperature": {
 		"interval": 2,
-		"thermal-zone": 0,
+		"thermal-zone": 1,
 		"critical-threshold": 80,
 		"format-critical": "{temperatureC:3}°C ",
 		"format": "{temperatureC:3}°C ",
@@ -91,7 +91,6 @@
 		},
 		"format": "{capacity:3}% {icon}",
 		"format-plugged": "{capacity:3}% 󰚥",
-		// "format-icons": ["", "", "", "", ""],
 		"format-icons": {
 			"default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
 			"charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
