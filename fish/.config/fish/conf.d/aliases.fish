@@ -3,8 +3,6 @@ alias godoc-http='echo "Starting webserver on port: 6060" && godoc -http=:6060'
 # Alias for git. Used for version-controlling the dotfiles in the home dir
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-alias full-upgrade="sudo -- sh -c 'apt update && apt full-upgrade && apt autopurge && apt autoclean' && flatpak update && flatpak uninstall --unused"
-
 alias dc='docker compose'
 
 alias gitlog='git log --oneline --all --graph'
@@ -41,7 +39,7 @@ alias userctl="systemctl --user"
 
 alias brownnoise="sox -q -c 2 -r 32000 -n -d -D synth 12:00:00 brownnoise vol 0.5 tremolo 0.0625 50 fade t 3"
 
-alias gemini-cli="npx https://github.com/google-gemini/gemini-cli"
+# alias gemini-cli="npx https://github.com/google-gemini/gemini-cli"
 
 if test "$TERM" = xterm-kitty
     # alias ssh="TERM=xterm-256color ssh"
