@@ -102,8 +102,16 @@ output "Dell Inc. DELL P3222QE 84KGT83" {
 	dpms on
 }
 
-# TODO: Dell ultrawide display @ Ziik office
-# output DP-3 resolution 3840x2160 position 0,0
+# Dell ultrawide display @ Ziik office
+output "Dell Inc. Dell U4924DW DVN11S3" {
+	mode  5120x1440@59.977Hz
+	pos 4480 720
+	transform normal
+	scale 1.0
+	scale_filter nearest
+	adaptive_sync off
+	dpms on
+}
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/Wallpapers/blobs-l.svg fill
