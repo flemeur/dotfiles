@@ -389,6 +389,9 @@ for_window {
 	[app_id="org.gnome.Nautilus"] floating enable
 	[app_id="org.gnome.NautilusPreviewer"] floating enable
 	[app_id="gnome-pomodoro"] floating enable
+	[app_id="bitwarden"] floating enable
+	[app_id="1password"] floating enable
+	[app_id="slack"] floating enable
 	# Firefox Picture-in-Picture floating and sticky
 	[app_id="firefox" title="^Picture-in-Picture$"] floating enable, resize set 25 ppt 25 ppt, move position 70 ppt 60 ppt, sticky enable
 }
