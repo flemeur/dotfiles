@@ -118,6 +118,7 @@
 	},
 	"custom/power": {
 		"format": " ",
+		"tooltip-format": "Exit",
 		"on-click": "wlogout"
 	},
 	"custom/notification": {
