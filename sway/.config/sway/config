@@ -22,8 +22,7 @@ set $font pango:"Fira Code" Regular 11
 
 # Startup commands
 
-# https://github.com/swaywm/sway/wiki#wayland-wont-let-me-run-apps-as-root
-# exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
+exec systemctl --user import-environment SSH_AUTH_SOCK
 
 # Gamme adjustments
 exec wlsunset -l 55.7 -L 12.5
