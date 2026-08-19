@@ -369,9 +369,11 @@ gaps inner 10
 # Window rules
 for_window {
 	[shell="xwayland"] title_format "%title [XWayland]"
+
 	[app_id="firefox"] inhibit_idle fullscreen
 	[app_id="mpv"] inhibit_idle fullscreen
 	[app_id="vlc"] inhibit_idle fullscreen
+
 	[window_role="pop-up"] floating enable
 	[window_role="bubble"] floating enable
 	[window_role="dialog"] floating enable
@@ -384,6 +386,9 @@ for_window {
 	[app_id="bitwarden"] floating enable
 	[app_id="1password"] floating enable
 	[app_id="slack"] floating enable
+	[app_id="org.pulseaudio.pavucontrol"] floating enable
+	[app_id="blueman-manager"] floating enable
+
 	# Firefox Picture-in-Picture floating and sticky
 	[app_id="firefox" title="^Picture-in-Picture$"] floating enable, resize set 25 ppt 25 ppt, move position 70 ppt 60 ppt, sticky enable
 }
