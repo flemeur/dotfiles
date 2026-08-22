@@ -3,14 +3,18 @@
 	name = Flemming Andersen
 [init]
 	defaultBranch = master
+[checkout]
+	defaultRemote = origin
 [pull]
 	ff = only
 [push]
 	default = simple
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
