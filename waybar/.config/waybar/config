@@ -8,7 +8,7 @@
 	"modules-center": [],
 	"modules-right": [
 		"tray", 
-		"cpu", "memory", "temperature", "custom/fan", "network", "battery", "pulseaudio", "idle_inhibitor", "clock", "custom/notification", "custom/power"],
+		"cpu", "memory", "temperature", "custom/fan", "network", "battery", "pulseaudio", "custom/screenrec", "idle_inhibitor", "clock", "custom/notification", "custom/power"],
 
 	"sway/workspaces": {
 		"justify": "left"
@@ -115,6 +115,13 @@
 			"default": ["", "", ""]
 		},
 		"on-click": "pavucontrol"
+	},
+	"custom/screenrec": {
+		"return-type": "json",
+		"exec": "~/.config/sway/scripts/screenrec.sh status",
+		"interval": "once",
+		"signal": 8,
+		"on-click": "~/.config/sway/scripts/screenrec.sh stop"
 	},
 	"custom/power": {
 		"format": " ",

@@ -37,6 +37,7 @@ window#waybar {
 #custom-power,
 #custom-menu,
 #custom-notification,
+#custom-screenrec,
 #custom-fan {
   padding: 0 12px;
   margin: 2px 0;
@@ -113,4 +114,8 @@ window#waybar {
 
 #custom-fan {
   color: @sky;
+}
+
+#custom-screenrec {
+  color: @red;
 }

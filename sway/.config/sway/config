@@ -177,10 +177,17 @@ bindsym $mod+d exec $menu
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # Screenshot
-bindsym $mod+p exec grim ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d\_%H-%m-%s).png
-bindsym Print exec grim ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d\_%H-%m-%s).png
-bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d\_%H-%m-%s).png
-bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d\_%H-%m-%s).png
+bindsym $mod+p exec grim ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym Print exec grim ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/Screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+
+# Screen recording (press again to stop)
+set $screenrec ~/.config/sway/scripts/screenrec.sh
+bindsym $mod+Alt+p exec $screenrec full
+bindsym Alt+Print exec $screenrec full
+bindsym $mod+Alt+Shift+p exec $screenrec region
+bindsym Alt+Shift+Print exec $screenrec region
 
 # Presentation / Output mirror
 mode "present" {
@@ -393,6 +400,9 @@ for_window {
 	# Firefox Picture-in-Picture floating and sticky
 	[app_id="firefox" title="^Picture-in-Picture$"] floating enable, resize set 25 ppt 25 ppt, move position 70 ppt 60 ppt, sticky enable
 }
+
+# Reload waybar config on sway reload (sway only restarts the bar if the bar block changed)
+exec_always pkill -SIGUSR2 waybar
 
 bar {
 	swaybar_command waybar
