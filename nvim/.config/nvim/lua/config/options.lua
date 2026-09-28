@@ -9,24 +9,17 @@ vim.opt.softtabstop = 8
 vim.opt.shiftwidth = 8
 
 -- Disable hiding stuff
-vim.wo.conceallevel = 0
+vim.opt.conceallevel = 0
 
 -- Show column at 80 chars
 vim.opt.colorcolumn = "80"
--- -- Show column at 120 chars
--- vim.opt.colorcolumn = "120"
 
 -- Show whitespace
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", lead = "⋅", trail = "⋅" }
-
--- Disable mouse
--- vim.opt.mouse = ""
 
 -- Disable annoying animation
 vim.g.snacks_animate = false
 
 -- Spell language
 vim.opt.spelllang = { "en_us" }
-
--- vim.g.lazyvim_prettier_needs_config = true

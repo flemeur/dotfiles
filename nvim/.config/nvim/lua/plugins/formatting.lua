@@ -26,8 +26,11 @@ return {
     opts.formatters_by_ft = opts.formatters_by_ft or {}
     opts.formatters = opts.formatters or {}
 
-    opts.formatters_by_ft.php = function()
-      if vim.fn.executable("./vendor/bin/pint") == 1 then
+    -- Searched upward from the buffer rather than the cwd, so a Laravel project is still
+    -- recognised when Neovim was started somewhere else.
+    opts.formatters_by_ft.php = function(bufnr)
+      local path = vim.api.nvim_buf_get_name(bufnr)
+      if vim.fs.find("vendor/bin/pint", { path = path, upward = true, type = "file" })[1] then
         return { "pint" }
       end
       return { "php_cs_fixer" }

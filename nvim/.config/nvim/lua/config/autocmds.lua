@@ -13,16 +13,17 @@ augroup("discontinue_comments", { clear = true })
 autocmds({ "FileType" }, {
   pattern = { "*" },
   callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions - "o"
+    vim.opt_local.formatoptions:remove("o")
   end,
   group = "discontinue_comments",
-  desc = "Dont't continue comments with o/O",
+  desc = "Don't continue comments with o/O",
 })
 
 -- Disable default keybinding where <c-l> will put focus in the right buffer instead of the terminal.
 -- see: https://github.com/LazyVim/LazyVim/issues/4509#issuecomment-2431509475
 -- Use TermEnter instead of TermOpen to also apply when going back to an already open terminal
-vim.api.nvim_create_autocmd("TermEnter", {
+autocmds("TermEnter", {
+  group = augroup("terminal_ctrl_l", { clear = true }),
   callback = function(ev)
     vim.keymap.set("t", "<c-l>", "<c-l>", { buffer = ev.buf, nowait = true })
   end,
