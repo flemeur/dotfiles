@@ -4,7 +4,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      -- Not "catppuccin": Neovim 0.12+ ships its own colors/catppuccin.vim, which shadows the
+      -- plugin's. "catppuccin-nvim" is the name catppuccin/nvim provides to avoid that clash.
+      colorscheme = "catppuccin-nvim",
     },
   },
 }
