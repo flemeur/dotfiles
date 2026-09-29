@@ -391,7 +391,7 @@ for_window {
 	[app_id="org.gnome.NautilusPreviewer"] floating enable
 	[app_id="gnome-pomodoro"] floating enable
 	[app_id="bitwarden"] floating enable
-	[app_id="1password"] floating enable
+	[app_id="com.onepassword.OnePassword"] floating enable
 	[app_id="org.pulseaudio.pavucontrol"] floating enable
 	[app_id="blueman-manager"] floating enable
 
