@@ -3,18 +3,26 @@ return {
     "saghen/blink.cmp",
     optional = true,
     opts = {
-      completion = {
-        list = {
-          selection = {
-            -- Disable preselecting the first item of the completion suggestions
-            preselect = false,
-          },
+      keymap = {
+        -- Only accept on Enter when the menu is actually open. Blink's `accept`
+        -- also fires when just the ghost text is visible, which inserted a
+        -- suggestion when I wanted a new line.
+        ["<CR>"] = {
+          function(cmp)
+            if cmp.is_menu_visible() then
+              return cmp.accept()
+            end
+          end,
+          "fallback",
         },
+      },
+      completion = {
         menu = {
-          -- Disable showing the completion popup automatically
+          -- Disable showing the completion popup automatically. Use <C-Space> to open it
           auto_show = false,
         },
-        -- ghost_text = { enabled = false },
+        -- Disable ghost text when popup is not visible
+        ghost_text = { enabled = false },
       },
     },
   },
