@@ -401,9 +401,6 @@ for_window {
 	[app_id="firefox" title="^Picture-in-Picture$"] floating enable, resize set 25 ppt 25 ppt, move position 70 ppt 60 ppt, sticky enable
 }
 
-# Reload waybar config on sway reload (sway only restarts the bar if the bar block changed)
-exec_always pkill -SIGUSR2 waybar
-
 bar {
 	swaybar_command waybar
 	# position top
