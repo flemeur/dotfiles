@@ -1,18 +1,3 @@
 {
-  "$schema": "https://charm.land/crush.json",
-  "lsp": {
-    "go": {
-      "command": "gopls"
-    },
-    "typescript": {
-      "command": "typescript-language-server",
-      "args": ["--stdio"]
-    },
-    "nix": {
-      "command": "nil"
-    },
-    "rust-analyzer": {
-      "command": "rust-analyzer"
-    }
-  }
+  "$schema": "https://charm.land/crush.json"
 }
