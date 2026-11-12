@@ -47,3 +47,15 @@ if test "$TERM" = xterm-kitty
 end
 
 alias worldtime='curl -sS -H "x-rapidapi-host: world-time-api3.p.rapidapi.com" -H "x-rapidapi-key: $WORLDTIME_API_KEY" https://world-time-api3.p.rapidapi.com/ip | jq -r .datetime'
+
+# Pull dotfiles and restore nvim plugins to the versions in lazy-lock.json.
+# Use on secondary machines; plugin updates happen on the main machine only.
+function dotsync --description 'Pull dotfiles and restore nvim plugins from lockfile'
+    # Locate the repo through the stowed lockfile symlink instead of hardcoding a path
+    set -l lockfile (path resolve ~/.config/nvim/lazy-lock.json)
+    set -l repo (git -C (path dirname $lockfile) rev-parse --show-toplevel)
+    or return
+
+    git -C $repo pull --ff-only
+    and nvim --headless "+Lazy! restore" +qa
+end
