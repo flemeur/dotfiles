@@ -1,8 +1,5 @@
 alias godoc-http='echo "Starting webserver on port: 6060" && godoc -http=:6060'
 
-# Alias for git. Used for version-controlling the dotfiles in the home dir
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 alias dc='docker compose'
 
 alias gitlog='git log --oneline --all --graph'
