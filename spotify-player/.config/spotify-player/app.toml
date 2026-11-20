@@ -1,5 +1,7 @@
 theme = "Catppuccin-mocha"
-client_id = "d420a117a32841c2b3474932e49fb54b"
+client_id_command = { command = "cat", args = [
+	"/home/flemming/.config/spotify-player/client_id.secret",
+] }
 client_port = 8080
 login_redirect_uri = "http://127.0.0.1:8989/login"
 playback_format = """
